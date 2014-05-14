@@ -3,7 +3,7 @@
 //  FMDBORM
 //
 //  Created by Muthu Rama on 18/04/2014.
-//  Copyright (c) 2014 Black Pearl Info Tech. All rights reserved.
+//  Copyright (c) 2014 PatWoW.com. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

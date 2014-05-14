@@ -1376,7 +1376,7 @@ void testPool(NSString *dbPath) {
             }];
         });
         
-        NSLog(@"Number of open databases after crazy gcd stuff: %ld", [dbPool countOfOpenDatabases]);
+        NSLog(@"Number of open databases after crazy gcd stuff: %ld", (unsigned long)[dbPool countOfOpenDatabases]);
     }
     
     FMDatabasePool *dbPool2 = [FMDatabasePool databasePoolWithPath:dbPath flags:SQLITE_OPEN_READONLY];

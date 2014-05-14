@@ -3,7 +3,7 @@
 //  ANZ_CLG
 //
 //  Created by Muthu Rama on 17/04/2014.
-//  Copyright (c) 2014 Black Pearl Info Tech. All rights reserved.
+//  Copyright (c) 2014 PatWoW.com. All rights reserved.
 //
 
 #import "DBManager.h"
@@ -11,6 +11,7 @@
 #import "DBModelMeta.h"
 
 @interface DBManager () {
+  
 }
 
 @property (strong, nonatomic) DBModelMeta* modelMeta;
@@ -124,7 +125,7 @@ static DBManager* dbMgr;
         //Default created method
         BOOL skipColum = NO;
 
-        if ([StringUtil isEqual:[self.modelMeta propertyGetColumnName]
+        if ([PWStringUtils isEqual:[self.modelMeta propertyGetColumnName]
                   compareString:@"created"]) {
             [paramsSql appendString:@"?"];
             [paramsArray addObject:[[NSDate alloc] init]];
@@ -156,7 +157,7 @@ static DBManager* dbMgr;
 
         NSNumber* insertedId = [NSNumber numberWithUnsignedInteger:(NSInteger)[db lastInsertRowId]];
 
-        if (![StringUtil isEmpty:pkName]) {
+        if (![PWStringUtils isEmpty:pkName]) {
             [dataObject setValue:insertedId
                           forKey:pkName];
         }
@@ -175,7 +176,7 @@ static DBManager* dbMgr;
         NSString* msg = [NSString stringWithFormat:@"%@  : %@ : %@", tableName, [db lastError], [db lastErrorMessage]];
         NSLog(@"%@", msg);
 
-        [Alert show:msg];
+        //[Alert show:msg];
         if (self.dbFail != nil) {
             self.dbFail([db lastError], [db lastErrorMessage]);
         }
@@ -215,7 +216,7 @@ static DBManager* dbMgr;
             continue;
         }
 
-        if ([StringUtil isEqual:[self.modelMeta propertyGetColumnName]
+        if ([PWStringUtils isEqual:[self.modelMeta propertyGetColumnName]
                   compareString:@"created"]) {
             continue;
         }
@@ -224,7 +225,7 @@ static DBManager* dbMgr;
             [sql appendString:@","];
         }
 
-        if ([StringUtil isEqual:[self.modelMeta propertyGetColumnName]
+        if ([PWStringUtils isEqual:[self.modelMeta propertyGetColumnName]
                   compareString:@"updated"]) {
             [sql appendString:@"updated"];
             [sql appendString:@" = ?"];
@@ -271,7 +272,7 @@ static DBManager* dbMgr;
 
         NSString* msg = [NSString stringWithFormat:@"%@  : Pkid %@ : %@ : %@", tableName, pkValue, [db lastError], [db lastErrorMessage]];
         NSLog(@"%@", msg);
-        [Alert show:msg];
+        //[Alert show:msg];
         if (self.dbFail != nil) {
             self.dbFail([db lastError], [db lastErrorMessage]);
         }
@@ -311,7 +312,7 @@ static DBManager* dbMgr;
             continue;
         }
         
-        if ([StringUtil isEqual:[self.modelMeta propertyGetColumnName]
+        if ([PWStringUtils isEqual:[self.modelMeta propertyGetColumnName]
                   compareString:@"created"]) {
             continue;
         }
@@ -320,7 +321,7 @@ static DBManager* dbMgr;
             [sql appendString:@","];
         }
         
-        if ([StringUtil isEqual:[self.modelMeta propertyGetColumnName]
+        if ([PWStringUtils isEqual:[self.modelMeta propertyGetColumnName]
                   compareString:@"updated"]) {
             [sql appendString:@"updated"];
             [sql appendString:@" = ?"];
@@ -367,7 +368,7 @@ static DBManager* dbMgr;
         
         NSString* msg = [NSString stringWithFormat:@"%@  : Pkid %@ : %@ : %@", tableName, pkValue, [db lastError], [db lastErrorMessage]];
         NSLog(@"%@", msg);
-        [Alert show:msg];
+        //[Alert show:msg];
         if (self.dbFail != nil) {
             self.dbFail([db lastError], [db lastErrorMessage]);
         }
@@ -413,7 +414,7 @@ static DBManager* dbMgr;
 
         NSString* msg = [NSString stringWithFormat:@"%@  : Pkid %@ : %@ : %@", tableName, pkValue, [db lastError], [db lastErrorMessage]];
         NSLog(@"%@", msg);
-        [Alert show:msg];
+        //[Alert show:msg];
         if (self.dbFail != nil) {
             self.dbFail([db lastError], [db lastErrorMessage]);
         }
@@ -440,7 +441,7 @@ static DBManager* dbMgr;
 
         NSString* msg = [NSString stringWithFormat:@"%@  : %@ : %@", query, [db lastError], [db lastErrorMessage]];
         NSLog(@"%@", msg);
-        [Alert show:msg];
+        //[Alert show:msg];
         if (self.dbFail != nil) {
             self.dbFail([db lastError], [db lastErrorMessage]);
         }
@@ -554,7 +555,7 @@ static DBManager* dbMgr;
     NSMutableArray* records = [[NSMutableArray alloc] init];
     FMResultSet* resultSet;
 
-    int count;
+    int count=0;
 
     self.dbSuccess = successBlock;
     self.dbFail = failBlock;
@@ -575,7 +576,7 @@ static DBManager* dbMgr;
     if (resultSet == nil) {
         NSString* msg = [NSString stringWithFormat:@"DBError %@ %@", [db lastError], [db lastErrorMessage]];
         NSLog(@"%@", msg);
-        [Alert show:msg];
+        //[Alert show:msg];
     }
     sqlite3_stmt* stat = [resultSet statement].statement;
 

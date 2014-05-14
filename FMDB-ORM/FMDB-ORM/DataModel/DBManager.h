@@ -3,17 +3,19 @@
 //  ANZ_CLG
 //
 //  Created by Muthu Rama on 17/04/2014.
-//  Copyright (c) 2014 Black Pearl Info Tech. All rights reserved.
+//  Copyright (c) 2014 PatWoW.com. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "DBObject.h"
 #import "DBModelMeta.h"
+#import "PWStringUtils.h"
 
 
 @interface DBManager : NSObject
 
 
+#define DB_NAME @"dbName.sqlite"
 
 -(id)init;
 
