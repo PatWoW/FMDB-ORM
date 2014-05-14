@@ -85,11 +85,11 @@ typedef void (^DBFail)(NSError *error, NSString *errMsg);
 -(void) insertRecord:(DBObject *)dataObject successBlock:(DBSuccess)successBlock failBlock:(DBFail)failBlock;
 
 /**
- *  <#Description#>
+ *  Description
  *
- *  @param dataObject   <#dataObject description#>
- *  @param successBlock <#successBlock description#>
- *  @param failBlock    <#failBlock description#>
+ *  @param dataObject   dataObject description
+ *  @param successBlock successBlock description
+ *  @param failBlock    failBlock description
  *  DBManger *dbMgr = [DBManager alloc]init];
  *  DBContact *contact = [DBContact alloc]init];
  
@@ -112,54 +112,54 @@ typedef void (^DBFail)(NSError *error, NSString *errMsg);
 /**
  *  ### Delete Record
  *
- *  @param dataObject   <#dataObject description#>
- *  @param successBlock <#successBlock description#>
- *  @param failBlock    <#failBlock description#>
+ *  @param dataObject   dataObject description
+ *  @param successBlock successBlock description
+ *  @param failBlock    failBlock description
  */
 -(void) deleteRecord:(DBObject *)dataObject successBlock:(DBSuccess)successBlock failBlock:(DBFail)failBlock;
 
 /**
  *  To check record exists
  *
- *  @param type         <#type description#>
- *  @param query        <#query description#>
- *  @param successBlock <#successBlock description#>
- *  @param failBlock    <#failBlock description#>
+ *  @param type         type description
+ *  @param query        query description
+ *  @param successBlock successBlock description
+ *  @param failBlock    failBlock description
  *
- *  @return <#return value description#>
+ *  @return return value description
  */
 -(BOOL) isRecordExists:(Class)type Sql:(NSString *)query successBlock:(DBSuccess)successBlock failBlock:(DBFail)failBlock;
 
 /**
  *  Delete record based on the sql with multiple where condition
  *
- *  @param query        <#query description#>
- *  @param successBlock <#successBlock description#>
- *  @param failBlock    <#failBlock description#>
+ *  @param query        query description
+ *  @param successBlock successBlock description
+ *  @param failBlock    failBlock description
  */
 -(void) deleteRecordSql:(NSString *)query successBlock:(DBSuccess)successBlock failBlock:(DBFail)failBlock;
 
 /**
  *  Retrieve Record based on the primary Key
  *
- *  @param type         <#type description#>
- *  @param key          <#key description#>
- *  @param successBlock <#successBlock description#>
- *  @param failBlock    <#failBlock description#>
+ *  @param type         type description
+ *  @param key          key description
+ *  @param successBlock successBlock description
+ *  @param failBlock    failBlock description
  *
- *  @return <#return value description#>
+ *  @return return value description
  */
 -(id) retrieveRecord:(Class)type key:(NSNumber *)key successBlock:(DBSuccess)successBlock failBlock:(DBFail)failBlock;
 
 /**
  *  Retrieve Multiple record set based on the sql
  *
- *  @param type         <#type description#>
- *  @param sql          <#sql description#>
- *  @param successBlock <#successBlock description#>
- *  @param failBlock    <#failBlock description#>
+ *  @param type         type description
+ *  @param sql          sql description
+ *  @param successBlock successBlock description
+ *  @param failBlock    failBlock description
  *
- *  @return <#return value description#>
+ *  @return return value description
  */
 -(NSArray *) retrieveRecordSet:(Class)type sqlStatement: (NSString *)sql successBlock:(DBSuccess)successBlock failBlock:(DBFail)failBlock;
 
@@ -168,12 +168,12 @@ typedef void (^DBFail)(NSError *error, NSString *errMsg);
 /**
  *  Returns first record of the record set
  *
- *  @param type         <#type description#>
- *  @param sql          <#sql description#>
- *  @param successBlock <#successBlock description#>
- *  @param failBlock    <#failBlock description#>
+ *  @param type         type description
+ *  @param sql          sql description
+ *  @param successBlock successBlock description
+ *  @param failBlock    failBlock description
  *
- *  @return <#return value description#>
+ *  @return return value description
  */
 -(id ) retrieveFirstRecord:(Class)type sqlStatement: (NSString *)sql successBlock:(DBSuccess)successBlock failBlock:(DBFail)failBlock;
 
