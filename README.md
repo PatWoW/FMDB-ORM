@@ -4,7 +4,7 @@
 A ORM wrapper around the FMDB library that provides an ORM layer for user-space objects in any iOS iPhone/iPad app.
 
 
-Getting Started
+###Getting Started
 
 To get started, add the **libsqlite3.0.dylib** framework to your project. Then copy the following files to your project:
 
