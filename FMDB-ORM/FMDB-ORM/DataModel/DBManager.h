@@ -3,19 +3,17 @@
 //  ANZ_CLG
 //
 //  Created by Muthu Rama on 17/04/2014.
-//  Copyright (c) 2014 Bigtincan. All rights reserved.
+//  Copyright (c) 2014 Black Pearl Info Tech. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "DBObject.h"
-#import "DBConstants.h"
 #import "DBModelMeta.h"
 
 
 @interface DBManager : NSObject
 
 
-//Test Changes DB Integration
 
 -(id)init;
 
@@ -57,7 +55,6 @@ typedef void (^DBFail)(NSError *error, NSString *errMsg);
 -(void) insertRecord:(DBObject *)dataObject successBlock:(DBSuccess)successBlock failBlock:(DBFail)failBlock;
 
 -(void) updateRecord:(DBObject *)dataObject successBlock:(DBSuccess)successBlock failBlock:(DBFail)failBlock;
--(void) updateRecord2:(DBObject *)dataObject successBlock:(DBSuccess)successBlock failBlock:(DBFail)failBlock;
 
 
 -(void) deleteRecord:(DBObject *)dataObject successBlock:(DBSuccess)successBlock failBlock:(DBFail)failBlock;
